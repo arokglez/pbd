@@ -21,20 +21,53 @@ function consulta(){
     $data["total"]["EDAD"]=mysqli_fetch_assoc($result);
     $result->close();
     
+    /*total_edad SUMINSITRO*/
+    $result1=$conn->query($edad_c.$sum["S"]);
+    $result2=$conn->query($edad_c.$sum["P"]);
+    $data["sum"]["EDAD"]["SOMNIFERO"]=mysqli_fetch_assoc($result1);
+    $data["sum"]["EDAD"]["PLACEBO"]=mysqli_fetch_assoc($result2);
+    $result1->close();
+    $result2->close();
+    
     /*total_sexo*/
     $result=$conn->query($sexo_c);
     $data["total"]["SEXO"]=mysqli_fetch_assoc($result);
     $result->close();
+    
+    /*total_sexo SUMINSITRO*/
+    $result1=$conn->query($sexo_c.$sum["S"]);
+    $result2=$conn->query($sexo_c.$sum["P"]);
+    $data["sum"]["SEXO"]["SOMNIFERO"]=mysqli_fetch_assoc($result1);
+    $data["sum"]["SEXO"]["PLACEBO"]=mysqli_fetch_assoc($result2);
+    $result1->close();
+    $result2->close();
     
     /*total nivel socioeconomico*/
     $result=$conn->query($ns_c);
     $data["total"]["NIVEL SOCIOECONOMICO"]=mysqli_fetch_assoc($result);
     $result->close();
     
+    /*total_sexo SUMINSITRO*/
+    $result1=$conn->query($ns_c.$sum["S"]);
+    $result2=$conn->query($ns_c.$sum["P"]);
+    $data["sum"]["NIVEL SOCIOECONOMICO"]["SOMNIFERO"]=mysqli_fetch_assoc($result1);
+    $data["sum"]["NIVEL SOCIOECONOMICO"]["PLACEBO"]=mysqli_fetch_assoc($result2);
+    $result1->close();
+    $result2->close();
+    
+    
     /*total estado civil*/
     $result=$conn->query($civil_c);
     $data["total"]["ESTADO CIVIL"]=mysqli_fetch_assoc($result);
     $result->close();
+    
+    /*total_sexo SUMINSITRO*/
+    $result1=$conn->query($civil_c.$sum["S"]);
+    $result2=$conn->query($civil_c.$sum["P"]);
+    $data["sum"]["ESTADO CIVIL"]["SOMNIFERO"]=mysqli_fetch_assoc($result1);
+    $data["sum"]["ESTADO CIVIL"]["PLACEBO"]=mysqli_fetch_assoc($result2);
+    $result1->close();
+    $result2->close();
     
     /*total suministro*/
     $result=$conn->query($suministro_c);
@@ -47,10 +80,10 @@ function consulta(){
     $result->close();
     
     /*edad para chi*/
-    $result1=$conn->query($edad_c.$casum["RS"]);
-    $result2=$conn->query($edad_c.$casum["RP"]);
-    $result3=$conn->query($edad_c.$casum["NRS"]);
-    $result4=$conn->query($edad_c.$casum["NRP"]);
+    $result1=$conn->query($edad_c.$ca["R"].$sum["S"]);
+    $result2=$conn->query($edad_c.$ca["R"].$sum["P"]);
+    $result3=$conn->query($edad_c.$ca["NR"].$sum["S"]);
+    $result4=$conn->query($edad_c.$ca["NR"].$sum["P"]);
     $data["chi"]["EDAD"]["REPARADOR"]["SOMNIFERO"]=mysqli_fetch_assoc($result1);
     $data["chi"]["EDAD"]["REPARADOR"]["PLACEBO"]=mysqli_fetch_assoc($result2);
     $data["chi"]["EDAD"]["NO REPARADOR"]["SOMNIFERO"]=mysqli_fetch_assoc($result3);
@@ -61,10 +94,10 @@ function consulta(){
     $result4->close();
     
     /*sexo para chi*/
-    $result1=$conn->query($sexo_c.$casum["RS"]);
-    $result2=$conn->query($sexo_c.$casum["RP"]);
-    $result3=$conn->query($sexo_c.$casum["NRS"]);
-    $result4=$conn->query($sexo_c.$casum["NRP"]);
+    $result1=$conn->query($sexo_c.$ca["R"].$sum["S"]);
+    $result2=$conn->query($sexo_c.$ca["R"].$sum["P"]);
+    $result3=$conn->query($sexo_c.$ca["NR"].$sum["S"]);
+    $result4=$conn->query($sexo_c.$ca["NR"].$sum["P"]);
     $data["chi"]["SEXO"]["REPARADOR"]["SOMNIFERO"]=mysqli_fetch_assoc($result1);
     $data["chi"]["SEXO"]["REPARADOR"]["PLACEBO"]=mysqli_fetch_assoc($result2);
     $data["chi"]["SEXO"]["NO REPARADOR"]["SOMNIFERO"]=mysqli_fetch_assoc($result3);
@@ -76,10 +109,10 @@ function consulta(){
     
       
     /*nivel socioeconomico para chi*/
-    $result1=$conn->query($ns_c.$casum["RS"]);
-    $result2=$conn->query($ns_c.$casum["RP"]);
-    $result3=$conn->query($ns_c.$casum["NRS"]);
-    $result4=$conn->query($ns_c.$casum["NRP"]);
+    $result1=$conn->query($ns_c.$ca["R"].$sum["S"]);
+    $result2=$conn->query($ns_c.$ca["R"].$sum["P"]);
+    $result3=$conn->query($ns_c.$ca["NR"].$sum["S"]);
+    $result4=$conn->query($ns_c.$ca["NR"].$sum["P"]);
     $data["chi"]["NIVEL SOCIOECONOMICO"]["REPARADOR"]["SOMNIFERO"]=mysqli_fetch_assoc($result1);
     $data["chi"]["NIVEL SOCIOECONOMICO"]["REPARADOR"]["PLACEBO"]=mysqli_fetch_assoc($result2);
     $data["chi"]["NIVEL SOCIOECONOMICO"]["NO REPARADOR"]["SOMNIFERO"]=mysqli_fetch_assoc($result3);
@@ -91,10 +124,10 @@ function consulta(){
     
       
     /*nivel socioeconomico para chi*/
-    $result1=$conn->query($civil_c.$casum["RS"]);
-    $result2=$conn->query($civil_c.$casum["RP"]);
-    $result3=$conn->query($civil_c.$casum["NRS"]);
-    $result4=$conn->query($civil_c.$casum["NRP"]);
+    $result1=$conn->query($civil_c.$ca["R"].$sum["S"]);
+    $result2=$conn->query($civil_c.$ca["R"].$sum["P"]);
+    $result3=$conn->query($civil_c.$ca["NR"].$sum["S"]);
+    $result4=$conn->query($civil_c.$ca["NR"].$sum["P"]);
     $data["chi"]["ESTADO CIVIL"]["REPARADOR"]["SOMNIFERO"]=mysqli_fetch_assoc($result1);
     $data["chi"]["ESTADO CIVIL"]["REPARADOR"]["PLACEBO"]=mysqli_fetch_assoc($result2);
     $data["chi"]["ESTADO CIVIL"]["NO REPARADOR"]["SOMNIFERO"]=mysqli_fetch_assoc($result3);

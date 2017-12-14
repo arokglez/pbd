@@ -8,7 +8,7 @@ $trabajo="ANÁLISIS DE HIPOTESÍS CON DISTRIBUCIÓN DE JI(CHÍ)";
 $integrantes='<ul>
                 <li>GONZÁLEZ ÁNGELES ALFREDO</li>
                 <li>HERNANDEZ HUICHAPA IVONNE ESTELA</li>
-                <li>MAYA RANGEL ROSALVA</li>
+                <li>MAYA RANGEL ROSALBA</li>
                 <li>TORRES HERNANDEZ KARLA CECILIA</li>
             </ul>';
 
@@ -27,7 +27,7 @@ $thkc= new THKC();
 $conclusiones=array(
     "GONZÁLEZ ÁNGELES ALFREDO" => $aga->get(),
     "HERNANDEZ HUICHAPA IVONNE ESTELA" => $hhie->get(),
-    "MAYA RANGEL ROSALVA" => $mrr->get(),
+    "MAYA RANGEL ROSALBA" => $mrr->get(),
     "TORRES HERNANDEZ KARLA CECILIA" => $thkc->get()
 
 );

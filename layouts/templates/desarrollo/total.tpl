@@ -2,11 +2,11 @@
 {if $dato@key eq "EDAD"}
 {include 'desarrollo/edad.tpl'}
 {/if}
-<table cellpadding="10" cellspacing="0" border="1" style="overflow: wrap;font-size:14px; position:relative; margin:0 auto" width="100%">
+<table cellpadding="5" cellspacing="0" border="1" style="overflow: wrap;font-size:14px; position:relative; margin:0 auto;" width="100%">
     <thead>
         <tr style="color:white;text-align: center; background-color: brown">
             {foreach $dato as $tipo}
-            <td style="font-size:15px; font-weight: bold">
+            <td style="font-size:13px; font-weight: bold">
                 {$tipo@key|replace:"_":" "}
             </td>
             {/foreach}
@@ -60,6 +60,9 @@ Highcharts.chart('container{$container}', {
  });
 </script>
 {assign var=container value=$container+1 scope="global"}
+
+{include 'desarrollo/total-sum.tpl'}
+
 <div style="text-align:center;width:100%;margin:0px auto">
     <b>TOTAL : {$t_tipo}</b>
 </div>

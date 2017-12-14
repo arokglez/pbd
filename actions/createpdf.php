@@ -29,7 +29,7 @@ if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQU
         $mpdf = new \Mpdf\Mpdf([
             'mode' => 'utf-8',
             'setAutoTopMargin' => 'pad',
-            'format' => 'Letter',
+            'format' => 'Legal',
             'Orientation' => 'L',
             'default_font' => 'dejavusans',
             'default_font_size' => 10

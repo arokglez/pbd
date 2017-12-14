@@ -33,36 +33,24 @@ $calidad_c='select SUM(if(cs.descripcion="Reparador",1,0)) as REPARADOR,
             from persona p,Calidad_Sueno cs
             where p.id_calidad=cs.id_calidad';
 
-$casum=array( "RS" => " AND id_calidad=(select id_calidad
-                               from calidad_sueno
-                               where descripcion='Reparador')
-               AND id_suministro=(select id_suministro
-                                  from suministro
-                                  where descripcion='Somnifero')",
-              "RP"  => " AND id_calidad=(select id_calidad
-                               from calidad_sueno
-                               where descripcion='Reparador')
-               AND id_suministro=(select id_suministro
-                                  from suministro
-                                  where descripcion='Placebo')",
-              "NRS" =>  " AND id_calidad=(select id_calidad
-                               from calidad_sueno
-                               where descripcion='No Reparador')
-               AND id_suministro=(select id_suministro
-                                  from suministro
-                                  where descripcion='Somnifero')",
-              "NRP" => " AND id_calidad=(select id_calidad
-                               from calidad_sueno
-                               where descripcion='No Reparador')
-               AND id_suministro=(select id_suministro
-                                  from suministro
-                                  where descripcion='Placebo')");
+$sum=array( "S" => " AND id_suministro=(select id_suministro
+                                                  from suministro
+                                                  where descripcion='Somnifero')",
+                  "P"  => " AND id_suministro=(select id_suministro
+                                                  from suministro
+                                                  where descripcion='Placebo')");
+
+$ca=array( "R" => " AND id_calidad=(select id_calidad 
+                                        from calidad_sueno 
+                                        where descripcion='Reparador')",
+               "NR" =>  " AND id_calidad=(select id_calidad
+                                           from calidad_sueno
+                                           where descripcion='No Reparador')");
 
 $cont_edad="select edad from persona";
 
 $desv_media="select desviacion as DESVIACION, media as MEDIA
-             from edad_d"
-    
+    from edad_d"
 
 
 ?>

@@ -1,22 +1,22 @@
 
         <h4><b>Paso 1:</b> <span>Tabla de datos</span></h4>
-        <table cellpadding="10" cellspacing="0" border="1" style="font-size:12pt; position:relative; margin:0 auto" width="100%">
+        <table cellpadding="5" cellspacing="0" border="1" style="font-size:12pt; position:relative; margin:0 auto;text-align:center;" width="100%">
             <thead>
                 <tr style="color:white;text-align: center; background-color: brown">
-                    <td style="font-size:14px; font-weight: bold">
+                    <td style="font-size:13px; font-weight: bold">
                         CALIDAD DE SUEÑO
                     </td>
                     {foreach $dato as $tipo}
                     {foreach $tipo as $col}
                     {foreach $col as $cell}
-                    <td style="font-size:14px; font-weight: bold">
+                    <td style="font-size:13px; font-weight: bold">
                         {$cell@key|replace:"_":" "} / ({$col@key|replace:"_":" "})
                     </td>
                     {/foreach}
                     {/foreach}
                     {break}
                     {/foreach}
-                    <td style="font-size:14px; font-weight: bold">
+                    <td style="font-size:13px; font-weight: bold">
                         TOTAL
                     </td>
                 </tr>
@@ -33,30 +33,30 @@
                     {foreach $tipo as $col}
                     {foreach $col as $cell}
                     {$t_row=$cell+$t_row}
-                    <td style="font-size:15px; text-align:center;vertical-align:middle">
+                    <td style=" text-align:center;vertical-align:middle">
                         {append var='totals_cls' value=$cell}
                         {$cell}
                     </td>
                     {/foreach}
                     {/foreach}
                     {append var='totals_rs' value=$t_row}
-                    <td style="font-size:15px; text-align:center;vertical-align:middle">
+                    <td style="text-align:center;vertical-align:middle">
                         {$t_row}
                     </td>
                 </tr>
                 {/foreach}
                 <tr style="color:black; background-color: white">
                     {$cols_t=$totals_cls|@count/2}
-                    <td style="font-size:15px;font-weight:bold;text-align:center;vertical-align:middle">TOTAL</td> 
+                    <td style="font-weight:bold;text-align:center;vertical-align:middle">TOTAL</td> 
                     {$total_f_t=0}
                     {for $i=0 to $cols_t-1}
-                    <td style="font-size:15px; text-align:center;vertical-align:middle">
+                    <td style="text-align:center;vertical-align:middle">
                         {append var='total_cls' value=$totals_cls[$i]+$totals_cls[$i+$cols_t]}
                         {$total_f_t=$total_cls[$i]+$total_f_t}
                         {$total_cls[$i]}
                     </td>
                     {/for}
-                    <td style="font-size:15px; text-align:center;vertical-align:middle">
+                    <td style="text-align:center;vertical-align:middle">
                         {$total_f_t}
                     </td>
                 </tr>
